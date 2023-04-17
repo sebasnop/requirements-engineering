@@ -10,4 +10,4 @@ Si alguno tiene información adicional de asesorías o respuestas del grupo de W
 
 ## Deliverables
 
-- [Entregable 3](/Deliverable3/README.md)
+- [Entregable 3](/Deliverable3)
