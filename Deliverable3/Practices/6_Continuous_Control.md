@@ -1,5 +1,7 @@
 # Continuous control of the work
 
+**Control continuo del trabajo**.
+
 **Alpha**: Way of working.
 
 Incroporar un producto de trabajo en el UNC Method.
