@@ -51,7 +51,7 @@
 					description: document.getElementById("description").value,
 					salary: document.getElementById("salary").value,
 					status: "active",
-					expiration_date: document.getElementById("expiration_date")
+					expiration_date: document.getElementById("expiration_date").value
 					}
 
 					localStorage.setItem("contract_"+contract.id.toString(),JSON.stringify(contract));

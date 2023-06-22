@@ -8,9 +8,100 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
-<body style="background-color: #f4f4f4;">
+<body style="background-color: #f4f4f4;" onload="LeerDatos()">
 
-	
+	<script type="text/javascript">
+		
+		function LeerDatos() {
+
+						var tblBody = document.getElementById("table_body");
+
+							last_id = parseInt(localStorage.getItem("last_SPM_id"));
+
+  							for (var i = 1; i <= last_id; i++) {
+    						// Crea las hileras de la tabla
+    						var SPM = JSON.parse(localStorage.getItem("SPM_"+i.toString()));
+
+    						if (SPM!= null) {
+  							
+    						var hilera = document.createElement("tr");
+
+    						var celda_identification = document.createElement("th");
+    						var identification = document.createTextNode(SPM.identification);
+    						celda_identification.appendChild(identification);
+    						hilera.appendChild(celda_identification);
+
+    						var celda_minutes_played = document.createElement("td");
+    						var minutes_played = document.createTextNode(SPM.minutes_played);
+    						celda_minutes_played.appendChild(minutes_played);
+    						hilera.appendChild(celda_minutes_played);
+
+    						var celda_shutouts_count = document.createElement("td");
+    						var shutouts_count = document.createTextNode(SPM.shutouts_count);
+    						celda_shutouts_count.appendChild(shutouts_count);
+    						hilera.appendChild(celda_shutouts_count);
+
+							var celda_goals_against_count = document.createElement("td");
+    						var goals_against_count = document.createTextNode(SPM.goals_against_count);
+    						celda_goals_against_count.appendChild(goals_against_count);
+    						hilera.appendChild(celda_goals_against_count);
+
+							var celda_saves_count = document.createElement("td");
+    						var saves_count = document.createTextNode(SPM.saves_count);
+    						celda_saves_count.appendChild(saves_count);
+    						hilera.appendChild(celda_saves_count);
+
+    						var celda_year = document.createElement("td");
+    						var year = document.createTextNode(SPM.year);
+    						celda_year.appendChild(year);
+    						hilera.appendChild(celda_year);
+
+    						var celda_games_played = document.createElement("td");
+    						var games_played = document.createTextNode(SPM.games_played);
+    						celda_games_played.appendChild(games_played);
+    						hilera.appendChild(celda_games_played);
+
+    						var celda_shots_on_goal = document.createElement("td");
+    						var shots_on_goal = document.createTextNode(SPM.shots_on_goal);
+    						celda_shots_on_goal.appendChild(shots_on_goal);
+    						hilera.appendChild(celda_shots_on_goal);
+
+    						var celda_penalty_time = document.createElement("td");
+    						var penalty_time = document.createTextNode(SPM.penalty_time);
+    						celda_penalty_time.appendChild(penalty_time);
+    						hilera.appendChild(celda_penalty_time);
+
+    						var celda_goals_count = document.createElement("td");
+    						var goals_count = document.createTextNode(SPM.goals_count);
+    						celda_goals_count.appendChild(goals_count);
+    						hilera.appendChild(celda_goals_count);
+
+    						
+    						var celda_assists_count = document.createElement("td");
+    						var assists_count = document.createTextNode(SPM.assists_count);
+    						celda_assists_count.appendChild(assists_count);
+    						hilera.appendChild(celda_assists_count);
+
+    						var celda_points_count = document.createElement("td");
+    						var points_count = document.createTextNode(SPM.points_count);
+    						celda_points_count.appendChild(points_count);
+    						hilera.appendChild(celda_points_count);
+
+
+
+
+    						// agrega la hilera al final de la tabla (al final del elemento tblbody)
+    						tblBody.appendChild(hilera);
+
+							}
+
+    						
+  							}
+
+
+				}
+
+	</script>
 
 	<div class="container mt-5 col-11" >
 
@@ -39,35 +130,8 @@
       					<th scope="col">Penalty Time</th>
     				</tr>
   				</thead>
-  				<tbody>
-    				<tr>
-      					<th scope="row">0</th>
-      					<td>2882</td>
-      					<td>2</td>
-      					<td>91</td>
-      					<td>1366</td>
-      					<td>2023</td>
-      					<td>49</td>
-      					<td>1457</td>
-      					<td>1</td>
-      					<td>0</td>
-      					<td>1</td>
-      					<td>2</td>
-    				</tr>
-    				<tr>
-    					<th scope="row">1</th>
-      					<td>2311</td>
-      					<td>3</td>
-      					<td>81</td>
-      					<td>1092</td>
-      					<td>2023</td>
-      					<td>39</td>
-      					<td>1173</td>
-      					<td>0</td>
-      					<td>1</td>
-      					<td>1</td>
-      					<td>0</td>
-    				</tr>
+  				<tbody id="table_body">
+    				
   				</tbody>
 			</table><br>
 

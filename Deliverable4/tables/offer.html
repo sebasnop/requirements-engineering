@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>offer</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body style="background-color: #f4f4f4;" onload="LeerDatos()">
+
+	<script type="text/javascript">
+		
+		function LeerDatos() {
+
+						var tblBody = document.getElementById("table_body");
+
+							last_id = parseInt(localStorage.getItem("last_offer_id"));
+
+  							for (var i = 1; i <= last_id; i++) {
+    						// Crea las hileras de la tabla
+    						
+
+    						if (localStorage.getItem("offer_"+i.toString()) != null) {
+  							
+    						var hilera = document.createElement("tr");
+    						var offer = JSON.parse(localStorage.getItem("offer_"+i.toString()));
+
+    						var celda_id = document.createElement("th");
+    						var id = document.createTextNode(offer.id);
+    						celda_id.appendChild(id);
+    						hilera.appendChild(celda_id);
+
+    						var celda_salary = document.createElement("td");
+    						var salary = document.createTextNode(offer.salary);
+    						celda_salary.appendChild(salary);
+    						hilera.appendChild(celda_salary);
+
+    						var celda_no_movement = document.createElement("td");
+    						var no_movement = document.createTextNode(offer.no_movement);
+    						celda_no_movement.appendChild(no_movement);
+    						hilera.appendChild(celda_no_movement);
+
+    						var celda_no_trade = document.createElement("td");
+    						var no_trade = document.createTextNode(offer.no_trade);
+    						celda_no_trade.appendChild(no_trade);
+    						hilera.appendChild(celda_no_trade);
+    						
+    						var celda_directionality = document.createElement("td");
+    						var directionality = document.createTextNode(offer.directionality);
+    						celda_directionality.appendChild(directionality);
+    						hilera.appendChild(celda_directionality);
+
+    						var celda_comments = document.createElement("td");
+    						var comments = document.createTextNode(offer.comments);
+    						celda_comments.appendChild(comments);
+    						hilera.appendChild(celda_comments);
+
+    						var celda_submission_date = document.createElement("td");
+    						var submission_date = document.createTextNode(offer.submission_date);
+    						celda_submission_date.appendChild(submission_date);
+    						hilera.appendChild(celda_submission_date);
+
+    						var celda_origin = document.createElement("td");
+    						var origin = document.createTextNode(offer.origin);
+    						celda_origin.appendChild(origin);
+    						hilera.appendChild(celda_origin);
+
+    						var celda_club_id = document.createElement("td");
+    						var club_id = document.createTextNode(offer.club_id);
+    						celda_club_id.appendChild(club_id);
+    						hilera.appendChild(celda_club_id);
+
+    						var celda_player_id = document.createElement("td");
+    						var player_id = document.createTextNode(offer.player_id);
+    						celda_player_id.appendChild(player_id);
+    						hilera.appendChild(celda_player_id);
+
+    						var celda_salary_type = document.createElement("td");
+    						var salary_type = document.createTextNode(offer.salary_type);
+    						celda_salary_type.appendChild(salary_type);
+    						hilera.appendChild(celda_salary_type);
+
+    						
+    						
+
+    						// agrega la hilera al final de la tabla (al final del elemento tblbody)
+    						tblBody.appendChild(hilera);
+
+							}
+
+    						
+  							}
+
+
+				}
+
+	</script>
+
+	<div class="container mt-5 col-10" >
+
+		<h1>Offers</h1>
+
+		<br>
+
+
+        <div class="p-4" style="background-color: #fff; border: solid #e3e4e5 1px; border-radius: 8px;">
+
+        	<table class="table">
+  				<thead>
+    				<tr>
+      					<th scope="col">Identification Code</th>
+      					<th scope="col">Proposed Salary</th>
+      					<th scope="col">No-Movement Clause</th>
+      					<th scope="col">No-Trade Clause</th>
+      					<th scope="col">Directionality Standard</th>
+      					<th scope="col">Comments</th>
+      					<th scope="col">Submission date</th>
+      					<th scope="col">Origin</th>
+      					<th scope="col">Club Identification</th>
+      					<th scope="col">Player Identification</th>
+      					<th scope="col">Salary type</th>
+    				</tr>
+  				</thead>
+  				<tbody id="table_body">
+    				
+    				
+  				</tbody>
+			</table>
+
+        </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

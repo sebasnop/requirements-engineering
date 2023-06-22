@@ -8,9 +8,140 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
-<body style="background-color: #f4f4f4;">
+<body style="background-color: #f4f4f4;" onload="LeerDatos()">
 
-	
+	<script type="text/javascript">
+		
+		function LeerDatos() {
+
+						var tblBody = document.getElementById("table_body");
+
+							last_id = parseInt(localStorage.getItem("last_LSA_id"));
+
+  							for (var i = 1; i <= last_id; i++) {
+    						// Crea las hileras de la tabla
+    						var LSA = JSON.parse(localStorage.getItem("LSA_"+i.toString()));
+
+    						if (LSA!= null) {
+  							
+    						var hilera = document.createElement("tr");
+
+    						var celda_shootout_wins_count = document.createElement("td");
+    						var shootout_wins_count = document.createTextNode(LSA.shootout_wins_count);
+    						celda_shootout_wins_count.appendChild(shootout_wins_count);
+    						hilera.appendChild(celda_shootout_wins_count);
+
+    						var celda_shootout_losses_count = document.createElement("td");
+    						var shootout_losses_count = document.createTextNode(LSA.shootout_losses_count);
+    						celda_shootout_losses_count.appendChild(shootout_losses_count);
+    						hilera.appendChild(celda_shootout_losses_count);
+
+							var celda_penalty_time = document.createElement("td");
+    						var penalty_time = document.createTextNode(LSA.penalty_time);
+    						celda_penalty_time.appendChild(penalty_time);
+    						hilera.appendChild(celda_penalty_time);
+
+							var celda_penalty_kill_chances_count = document.createElement("td");
+    						var penalty_kill_chances_count = document.createTextNode(LSA.penalty_kill_chances_count);
+    						celda_penalty_kill_chances_count.appendChild(penalty_kill_chances_count);
+    						hilera.appendChild(celda_penalty_kill_chances_count);
+
+    						var celda_shorthanded_goals_for_count = document.createElement("td");
+    						var shorthanded_goals_for_count = document.createTextNode(LSA.shorthanded_goals_for_count);
+    						celda_shorthanded_goals_for_count.appendChild(shorthanded_goals_for_count);
+    						hilera.appendChild(celda_shorthanded_goals_for_count);
+
+    						var celda_shorthanded_goals_against_count = document.createElement("td");
+    						var shorthanded_goals_against_count = document.createTextNode(LSA.shorthanded_goals_against_count);
+    						celda_shorthanded_goals_against_count.appendChild(shorthanded_goals_against_count);
+    						hilera.appendChild(celda_shorthanded_goals_against_count);
+
+    						var celda_power_play_goals_count = document.createElement("td");
+    						var power_play_goals_count = document.createTextNode(LSA.power_play_goals_count);
+    						celda_power_play_goals_count.appendChild(power_play_goals_count);
+    						hilera.appendChild(celda_power_play_goals_count);
+
+    						var celda_power_play_chances_count = document.createElement("td");
+    						var power_play_chances_count = document.createTextNode(LSA.power_play_chances_count);
+    						celda_power_play_chances_count.appendChild(power_play_chances_count);
+    						hilera.appendChild(celda_power_play_chances_count);
+
+    						var celda_power_play_goals_against_count = document.createElement("td");
+    						var power_play_goals_against_count = document.createTextNode(LSA.power_play_goals_against_count);
+    						celda_power_play_goals_against_count.appendChild(power_play_goals_against_count);
+    						hilera.appendChild(celda_power_play_goals_against_count);
+
+    						
+    						var celda_goals_for_count = document.createElement("td");
+    						var goals_for_count = document.createTextNode(LSA.goals_for_count);
+    						celda_goals_for_count.appendChild(goals_for_count);
+    						hilera.appendChild(celda_goals_for_count);
+
+    						var celda_minutes_of_bench_minor = document.createElement("td");
+    						var minutes_of_bench_minor = document.createTextNode(LSA.minutes_of_bench_minor);
+    						celda_minutes_of_bench_minor.appendChild(minutes_of_bench_minor);
+    						hilera.appendChild(celda_minutes_of_bench_minor);
+
+    						var celda_final_standing = document.createElement("td");
+    						var final_standing = document.createTextNode(LSA.final_standing);
+    						celda_final_standing.appendChild(final_standing);
+    						hilera.appendChild(celda_final_standing);
+
+    						var celda_playoff_result = document.createElement("td");
+    						var playoff_result = document.createTextNode(LSA.playoff_result);
+    						celda_playoff_result.appendChild(playoff_result);
+    						hilera.appendChild(celda_playoff_result);
+
+    						var celda_games_count = document.createElement("td");
+    						var games_count = document.createTextNode(LSA.games_count);
+    						celda_games_count.appendChild(games_count);
+    						hilera.appendChild(celda_games_count);
+
+    						var celda_wins_count = document.createElement("td");
+    						var wins_count = document.createTextNode(LSA.wins_count);
+    						celda_wins_count.appendChild(wins_count);
+    						hilera.appendChild(celda_wins_count);
+
+    						var celda_losses_count = document.createElement("td");
+    						var losses_count = document.createTextNode(LSA.losses_count);
+    						celda_losses_count.appendChild(losses_count);
+    						hilera.appendChild(celda_losses_count);
+
+    						var celda_overtime_losses_count = document.createElement("td");
+    						var overtime_losses_count = document.createTextNode(LSA.overtime_losses_count);
+    						celda_overtime_losses_count.appendChild(overtime_losses_count);
+    						hilera.appendChild(celda_overtime_losses_count);
+
+    						var celda_points_count = document.createElement("td");
+    						var points_count = document.createTextNode(LSA.points_count);
+    						celda_points_count.appendChild(points_count);
+    						hilera.appendChild(celda_points_count);
+
+    						var celda_goals_against_count = document.createElement("td");
+    						var goals_against_count = document.createTextNode(LSA.goals_against_count);
+    						celda_goals_against_count.appendChild(goals_against_count);
+    						hilera.appendChild(celda_goals_against_count);
+
+
+
+	    						
+    						
+
+    						
+    						
+
+    						// agrega la hilera al final de la tabla (al final del elemento tblbody)
+    						tblBody.appendChild(hilera);
+
+							}
+
+    						
+  							}
+
+
+				}
+
+	</script>
 
 	<div class="container mt-5 col-12" >
 
@@ -45,49 +176,8 @@
       					<th scope="col">Goals Against Count</th>
     				</tr>
   				</thead>
-  				<tbody>
-    				<tr>
-      					<td>3</td>
-      					<td>7</td>
-      					<td>980</td>
-      					<td>283</td>
-      					<td>4</td>
-      					<td>5</td>
-      					<td>45</td>
-      					<td>271</td>
-      					<td>51</td>
-      					<td>18</td>
-      					<td>5</td>
-      					<td>N/A</td>
-      					<td>82</td>
-      					<td>34</td>
-      					<td>36</td>
-      					<td>12</td>
-      					<td>80</td>
-      					<td>204</td>
-      					<td>231</td>
-    				</tr>
-    				<tr>
-      					<td>7</td>
-      					<td>7</td>
-      					<td>848</td>
-      					<td>233</td>
-      					<td>7</td>
-      					<td>3</td>
-      					<td>42</td>
-      					<td>277</td>
-      					<td>51</td>
-      					<td>20</td>
-      					<td>4</td>
-      					<td>CQF</td>
-      					<td>82</td>
-      					<td>45</td>
-      					<td>26</td>
-      					<td>11</td>
-      					<td>101</td>
-      					<td>248</td>
-      					<td>238</td>
-    				</tr>
+  				<tbody id="table_body">
+    				
   				</tbody>
 			</table><br>
 

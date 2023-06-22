@@ -8,9 +8,93 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
-<body style="background-color: #f4f4f4;">
+<body style="background-color: #f4f4f4;" onload="LeerDatos()">
 
-	
+	<script type="text/javascript">
+		
+		function LeerDatos() {
+
+						var tblBody = document.getElementById("table_body");
+
+							last_id = parseInt(localStorage.getItem("last_user_id"));
+
+  							for (var i = 1; i <= last_id; i++) {
+    						// Crea las hileras de la tabla
+    						var user = JSON.parse(localStorage.getItem("user_"+i.toString()));
+  
+
+    						if (user!= null && user.role == "player") {
+  							
+    						var hilera = document.createElement("tr");
+
+    						var celda_id = document.createElement("th");
+    						var id = document.createTextNode(user.id);
+    						celda_id.appendChild(id);
+    						hilera.appendChild(celda_id);
+
+    						var celda_name = document.createElement("td");
+    						var name = document.createTextNode(user.name);
+    						celda_name.appendChild(name);
+    						hilera.appendChild(celda_name);
+
+							var celda_height = document.createElement("td");
+    						var height = document.createTextNode(user.height);
+    						celda_height.appendChild(height);
+    						hilera.appendChild(celda_height);
+
+							var celda_weight = document.createElement("td");
+    						var weight = document.createTextNode(user.weight);
+    						celda_weight.appendChild(weight);
+    						hilera.appendChild(celda_weight);
+
+    						var celda_date_of_birth = document.createElement("td");
+    						var date_of_birth = document.createTextNode(user.date_of_birth);
+    						celda_date_of_birth.appendChild(date_of_birth);
+    						hilera.appendChild(celda_date_of_birth);
+
+    						var celda_birthplace = document.createElement("td");
+    						var birthplace = document.createTextNode(user.birthplace);
+    						celda_birthplace.appendChild(birthplace);
+    						hilera.appendChild(celda_birthplace);
+
+    						var celda_position = document.createElement("td");
+    						var position = document.createTextNode(user.position);
+    						celda_position.appendChild(position);
+    						hilera.appendChild(celda_position);
+
+    						var celda_preferred_hand = document.createElement("td");
+    						var preferred_hand = document.createTextNode(user.preferred_hand);
+    						celda_preferred_hand.appendChild(preferred_hand);
+    						hilera.appendChild(celda_preferred_hand);
+
+    						var celda_current_hiring_status = document.createElement("td");
+    						var current_hiring_status = document.createTextNode(user.current_hiring_status);
+    						celda_current_hiring_status.appendChild(current_hiring_status);
+    						hilera.appendChild(celda_current_hiring_status);
+
+    						
+
+
+
+
+	    						
+    						
+
+    						
+    						
+
+    						// agrega la hilera al final de la tabla (al final del elemento tblbody)
+    						tblBody.appendChild(hilera);
+
+							}
+
+    						
+  							}
+
+
+				}
+
+	</script>
 
 	<div class="container mt-5 col-11" >
 
@@ -33,58 +117,10 @@
       					<th scope="col">Position</th>
       					<th scope="col">Prefered Hand</th>
       					<th scope="col">Current Hiring Status</th>
-      					<th scope="col">Season Performance Measure ID</th>
     				</tr>
   				</thead>
-  				<tbody>
-    				<tr>
-      					<th scope="row">0</th>
-      					<td>Linus Ullmark</td>
-      					<td>193</td>
-      					<td>98</td>
-      					<td>July 31, 1993</td>
-      					<td>Lugnvik</td>
-      					<td>Goalie</td>
-      					<td>Left</td>
-      					<td>True</td>
-      					<td>0</td>
-    				</tr>
-    				<tr>
-    					<th scope="row">1</th>
-    					<td>Filip Gustavsson</td>
-    					<td>188</td>
-    					<td>83</td>
-    					<td>June 7, 1998</td>
-    					<td>Skellefteå</td>
-    					<td>Goalie</td>
-    					<td>Left</td>
-    					<td>False</td>
-    					<td>1</td>
-    				</tr>
-    				<tr>
-    					<th scope="row">2</th>
-    					<td>Connor McDavid</td>
-    					<td>185</td>
-    					<td>88</td>
-    					<td>January 13, 1997</td>
-    					<td>Richmond Hill</td>
-    					<td>Forward</td>
-    					<td>Left</td>
-    					<td>True</td>
-    					<td>2</td>
-    				</tr>
-    				<tr>
-    					<th scope="row">3</th>
-    					<td>Erik Karlsson</td>
-    					<td>183</td>
-    					<td>86</td>
-    					<td>May 31, 1990</td>
-    					<td>Landsbro</td>
-    					<td>Defense</td>
-    					<td>Right</td>
-    					<td>False</td>
-    					<td>3</td>
-    				</tr>
+  				<tbody id="table_body">
+    				
   				</tbody>
 			</table>
 

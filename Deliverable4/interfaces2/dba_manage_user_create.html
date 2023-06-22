@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
-<body style="background-color: #f4f4f4;" onload="EsconderCampos()">
+<body style="background-color: #f4f4f4;" onload="LeerDatos()">
 
 	
 
@@ -45,7 +45,7 @@
 
 			<script type="text/javascript">
 
-				function EsconderCampos() {
+				function LeerDatos() {
 
 						var tblBody = document.getElementById("table_body");
 
@@ -275,7 +275,8 @@
 						date_of_birth: document.getElementById("date_of_birth").value,
 						birthplace: document.getElementById("birthplace").value,
 						position: document.getElementById("position").value,
-						preferred_hand: document.getElementById("preferred_hand").value
+						preferred_hand: document.getElementById("preferred_hand").value,
+						current_hiring_status: "false"
 					}
 					}
 					if(document.getElementById("role").value == "3"){

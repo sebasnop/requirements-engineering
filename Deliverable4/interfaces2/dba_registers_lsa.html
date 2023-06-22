@@ -34,89 +34,98 @@
         		<div class="col-6 pl-4">
 
         			<label class="form-label">Shootout Wins Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="swc">
+        			<input type="number" name="" class="form-control mb-2" id="shootout_wins_count">
 
         			<label class="form-label">Shootout Losses Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="slc">
+        			<input type="number" name="" class="form-control mb-2" id="shootout_losses_count">
 
         			<label class="form-label">Penalty Time</label>
-        			<input type="number" name="" class="form-control mb-2" id="pt">
+        			<input type="number" name="" class="form-control mb-2" id="penalty_time">
 
         			<label class="form-label">Penalty Kill Chances Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="pkcc">
+        			<input type="number" name="" class="form-control mb-2" id="penalty_kill_chances_count">
 
         			<label class="form-label">Shorthanded Goals For Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="sgfc">
+        			<input type="number" name="" class="form-control mb-2" id="shorthanded_goals_for_count">
 
         			<label class="form-label">Shorthanded Goals Against Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="sgac">
+        			<input type="number" name="" class="form-control mb-2" id="shorthanded_goals_against_count">
 
         			<label class="form-label">Power Play Goals Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="ppgc">
+        			<input type="number" name="" class="form-control mb-2" id="power_play_goals_count">
 
         			<label class="form-label">Power Play Chances Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="ppcc">
+        			<input type="number" name="" class="form-control mb-2" id="power_play_chances_count">
 
         			<label class="form-label">Power Play Goals Against Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="ppac">
+        			<input type="number" name="" class="form-control mb-2" id="power_play_goals_against_count">
 
         			<label class="form-label">Goals For Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="gfc">
+        			<input type="number" name="" class="form-control mb-2" id="goals_for_count">
 
         		</div>
 
         		<div class="col-6 pr-4">
 
         			<label class="form-label">Minutes of Bench Minor</label>
-        			<input type="number" name="" class="form-control mb-2" id="mbm">
+        			<input type="number" name="" class="form-control mb-2" id="minutes_of_bench_minor">
 
         			<label class="form-label">Final Standing</label>
-        			<input type="number" name="" class="form-control mb-2" id="fs">
+        			<input type="number" name="" class="form-control mb-2" id="final_standing">
 
         			<label class="form-label">Playoff Result</label>
-        			<input type="number" name="" class="form-control mb-2" id="pr">
+        			<input type="number" name="" class="form-control mb-2" id="playoff_result">
 
         			<label class="form-label">Games Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="gc">
+        			<input type="number" name="" class="form-control mb-2" id="games_count">
 
         			<label class="form-label">Wins Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="wc">
+        			<input type="number" name="" class="form-control mb-2" id="wins_count">
 
         			<label class="form-label">Losses Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="lc">
+        			<input type="number" name="" class="form-control mb-2" id="losses_count">
 
         			<label class="form-label">Overtime Losses Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="olc">
+        			<input type="number" name="" class="form-control mb-2" id="overtime_losses_count">
 
         			<label class="form-label">Points Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="pc">
+        			<input type="number" name="" class="form-control mb-2" id="points_count">
 
         			<label class="form-label">Goals Against Count</label>
-        			<input type="number" name="" class="form-control mb-2" id="gac">
+        			<input type="number" name="" class="form-control mb-2" id="goals_against_count">
 
         			<label></label>
-        			<button type="button" class="btn btn-primary form-control mt-2">Save Data</button>
+        			<button type="button" class="btn btn-primary form-control mt-2" onclick="CreateLSA()">Save Data</button>
 
         			<script type="text/javascript">
         				
         				function CreateLSA(){
 
         					var last_season_result = {
-								id: parseInt(localStorage.getItem("last_LSA_id")) + 1,
-								salary: document.getElementById("proposed_salary").value,
-								no_movement: document.getElementById("no_movement").value,
-								no_trade: document.getElementById("no_trade").value,
-								directionality: document.getElementById("directionality").value,
-								comments: document.getElementById("comments").value,
-								submission_date: '22/10/2023',
-								origin: "club",
-								club_id: "1",
-								player_id: "1",
-								salary_type: "unique"
+								identification: parseInt(localStorage.getItem("LSA_id")) + 1,
+								shootout_wins_count: document.getElementById("shootout_wins_count").value,
+								shootout_losses_count: document.getElementById("shootout_losses_count").value,
+								penalty_time: document.getElementById("penalty_time").value,
+								penalty_kill_chances_count: document.getElementById("penalty_kill_chances_count").value,
+								shorthanded_goals_for_count: document.getElementById("shorthanded_goals_for_count").value,
+								shorthanded_goals_against_count: document.getElementById("shorthanded_goals_against_count").value,
+								power_play_goals_count: document.getElementById("power_play_goals_count").value,
+								power_play_chances_count: document.getElementById("power_play_chances_count").value,
+								power_play_goals_against_count: document.getElementById("power_play_goals_against_count").value,
+								goals_for_count: document.getElementById("goals_for_count").value,
+								minutes_of_bench_minor: document.getElementById("minutes_of_bench_minor").value,
+								final_standing: document.getElementById("final_standing").value,
+								playoff_result: document.getElementById("playoff_result").value,
+								games_count: document.getElementById("games_count").value,
+								wins_count: document.getElementById("wins_count").value,
+								losses_count: document.getElementById("losses_count").value,
+								overtime_losses_count: document.getElementById("overtime_losses_count").value,
+								points_count: document.getElementById("points_count").value,
+								goals_against_count: document.getElementById("goals_against_count").value
 							}
 
-							localStorage.setItem("LSA_"+last_season_result.id.toString(),JSON.stringify(last_season_result));
-							localStorage.setItem("last_LSA_id", last_season_result.id.toString());
+							localStorage.setItem("LSA_"+last_season_result.identification.toString(),JSON.stringify(last_season_result));
+							localStorage.setItem("last_LSA_id", last_season_result.identification.toString());
 							alert("Last season result registered successfully");
 
         				}

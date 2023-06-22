@@ -34,20 +34,20 @@
         		<div class="col-6 pl-4">
 
         			<label class="form-label">Minutes Played</label>
-        			<input type="number" name="" class="form-control mb-2">
+        			<input type="number" name="" class="form-control mb-2" id="minutes_played">
 
         			<label class="form-label">Shutouts Count</label>
-        			<input type="number" name="" class="form-control mb-2">
+        			<input type="number" name="" class="form-control mb-2" id="shutouts_count">
 
         		</div>
 
         		<div class="col-6 pr-4">
 
         			<label class="form-label">Goals Against Count</label>
-        			<input type="number" name="" class="form-control mb-2">
+        			<input type="number" name="" class="form-control mb-2" id="goals_against_count">
 
         			<label class="form-label">Saves Count</label>
-        			<input type="number" name="" class="form-control mb-2">
+        			<input type="number" name="" class="form-control mb-2" id="saves_count">
 
         		</div>
         	</div>
@@ -59,33 +59,60 @@
         		<div class="col-6 pl-4">
 
         			<label class="form-label">Year</label>
-        			<input type="number" name="" class="form-control mb-2">
+        			<input type="number" name="" class="form-control mb-2" id="year">
 
         			<label class="form-label">Games Played</label>
-        			<input type="number" name="" class="form-control mb-2">
+        			<input type="number" name="" class="form-control mb-2" id="games_played">
 
         			<label class="form-label">Shots on Goal</label>
-        			<input type="number" name="" class="form-control mb-2">
+        			<input type="number" name="" class="form-control mb-2" id="shots_on_goal">
 
         			<label class="form-label">Penalty Time</label>
-        			<input type="number" name="" class="form-control mb-2">
+        			<input type="number" name="" class="form-control mb-2" id="penalty_time">
 
         		</div>
 
         		<div class="col-6 pr-4">
 
         			<label class="form-label">Goals Count</label>
-        			<input type="number" name="" class="form-control mb-2">
+        			<input type="number" name="" class="form-control mb-2" id="goals_count">
 
         			<label class="form-label">Assists Count</label>
-        			<input type="number" name="" class="form-control mb-2">
+        			<input type="number" name="" class="form-control mb-2" id="assists_count">
 
         			<label class="form-label">Points Count</label>
-        			<input type="number" name="" class="form-control mb-2">
+        			<input type="number" name="" class="form-control mb-2" id="points_count">
 
 
         			<label></label>
-        			<button type="button" class="btn btn-primary form-control mt-2">Save Data</button>
+        			<button type="button" class="btn btn-primary form-control mt-2" onclick="CreateSPM()">Save Data</button>
+        			<script type="text/javascript">
+        				
+        				function CreateSPM(){
+
+        					var season_performance_measure = {
+								identification: 0 + 1,
+								minutes_played: document.getElementById("minutes_played").value,
+								shutouts_count: document.getElementById("shutouts_count").value,
+								goals_against_count: document.getElementById("goals_against_count").value,
+								saves_count: document.getElementById("saves_count").value,
+								year: document.getElementById("year").value,
+								games_played: document.getElementById("games_played").value,
+								shots_on_goal: document.getElementById("shots_on_goal").value,
+								penalty_time: document.getElementById("penalty_time").value,
+								goals_count: document.getElementById("goals_count").value,
+								assists_count: document.getElementById("assists_count").value,
+								points_count: document.getElementById("points_count").value
+								
+							}
+
+							localStorage.setItem("SPM_"+season_performance_measure.identification.toString(),JSON.stringify(season_performance_measure));
+							localStorage.setItem("last_SPM_id", season_performance_measure.identification.toString());
+							alert("Season performance measure registered successfully");
+
+        				}
+
+        			</script>
 
         		</div>
         	</div>
