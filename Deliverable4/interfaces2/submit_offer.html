@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>submit_offer</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body style="background-color: #f4f4f4;">
+
+	
+
+	<div class="container mt-5 col-4" >
+
+		<h1>Submit Offer</h1>
+		<h2>To John P. Macwell</h2>
+
+		<br>
+
+
+        <div class="p-4" style="background-color: #fff; border: solid #e3e4e5 1px; border-radius: 8px;">
+
+        	<label class="form-label">Proposed Salary</label>
+        	<input type="number" name="" class="form-control mb-2" placeholder="Insert Salary here" id="proposed_salary"><br>
+
+        	<label class="form-label">No-Movement Clause</label>
+        	<input type="text" name="" class="form-control mb-2" placeholder="Insert details here" id="no_movement"><br>
+
+        	<label class="form-label">No-Trade Clause</label>
+        	<input type="text" name="" class="form-control mb-2" placeholder="Insert details here" id="no_trade"><br>
+
+        	<label class="form-label">Directionality Standard</label>
+        	<select class="form-control" aria-label="Default select example" id="directionality">
+  				<option value="one-way">One-Way</option>
+  				<option value="two-way">Two-Way</option>
+			</select><br>
+
+			<label class="form-label">Additional Comments</label>
+			<textarea class="form-control" rows="3" id="comments"></textarea><br>
+
+			<button type="button" class="btn btn-primary form-control mt-2" onclick="CreateOffer()">Submit</button>
+
+
+			<script type="text/javascript">
+
+				function CreateOffer(){
+					var today = new Date();
+					var day = today.getDate();
+					var month = today.getMonth() + 1;
+					var year = today.getFullYear();
+
+					var offer = {
+					id: parseInt(localStorage.getItem("last_offer_id")) + 1,
+					salary: document.getElementById("proposed_salary").value,
+					no_movement: document.getElementById("no_movement").value,
+					no_trade: document.getElementById("no_trade").value,
+					directionality: document.getElementById("directionality").value,
+					comments: document.getElementById("comments").value,
+					submission_date: '22/10/2023',
+					origin: "club",
+					club_id: "1",
+					player_id: "1",
+					salary_type: "unique"
+					}
+
+					localStorage.setItem("offer_"+offer.id.toString(),JSON.stringify(offer));
+					localStorage.setItem("last_offer_id", offer.id.toString());
+					alert("Offer created successfully");
+				}
+				
+				
+
+			</script>
+
+        </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

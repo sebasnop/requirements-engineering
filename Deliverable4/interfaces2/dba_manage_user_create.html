@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>dba_manages_user</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body style="background-color: #f4f4f4;" onload="EsconderCampos()">
+
+	
+
+	<div class="container mt-5" >
+
+		<h1>Manage Users</h1>
+
+		<br>
+
+		<div class="row">
+
+        	<div class="col-4 mr-1 p-3" style="background-color: #fff; border: solid #e3e4e5 1px; border-radius: 8px;">
+
+        	<h3>Create New User</h3>
+        	<label class="form-label">Name</label>
+        	<input type="text" name="" class="form-control mb-2" placeholder="Insert Name here" id="name">
+
+        	<label class="form-label">Email</label>
+        	<input type="text" name="" class="form-control mb-2" placeholder="Insert Email here" id="email">
+
+        	<label class="form-label">Password</label>
+        	<input type="text" name="" class="form-control mb-2" placeholder="Insert Password here" id="password">
+
+        	<label class="form-label">Role</label>
+        	<select class="form-control" aria-label="Default select example" onchange="MostrarCampos()" id="role">
+  				<option value="0" selected>Open this select menu</option>
+  				<option value="1">President</option>
+  				<option value="2">Player</option>
+  				<option value="3">Database Administrator</option>
+			</select>
+			<hr>
+
+			<script type="text/javascript">
+
+				function EsconderCampos() {
+
+						var tblBody = document.getElementById("table_body");
+
+							last_id = parseInt(localStorage.getItem("last_user_id"));
+
+  							for (var i = 1; i <= last_id; i++) {
+    						// Crea las hileras de la tabla
+    						
+
+    						if (localStorage.getItem("user_"+i.toString()) != null) {
+  							
+    						var hilera = document.createElement("tr");
+    						var user = JSON.parse(localStorage.getItem("user_"+i.toString()));
+
+    						var celda_email = document.createElement("td");
+    						var email = document.createTextNode(user.email);
+    						celda_email.appendChild(email);
+    						hilera.appendChild(celda_email);
+    						
+    						var celda_role = document.createElement("td");
+    						var role = document.createTextNode(user.role);
+    						celda_role.appendChild(role);
+    						hilera.appendChild(celda_role);
+
+    						var celda_delete = document.createElement("td");
+    						var delete_button = document.createElement("button");
+    						var texto = document.createTextNode("Delete");
+    						delete_button.className = "btn btn-dark form-control";
+    						delete_button.appendChild(texto);
+    						celda_delete.appendChild(delete_button);
+    						hilera.appendChild(celda_delete);
+    						
+
+    						// agrega la hilera al final de la tabla (al final del elemento tblbody)
+    						tblBody.appendChild(hilera);
+
+							}
+
+    						
+  							}
+
+
+  						document.getElementById("directed_team").setAttribute('type','hidden');
+						document.getElementById("directed_team_label").style.visibility="hidden";
+
+
+						document.getElementById("height").setAttribute('type','hidden');
+						document.getElementById("height_label").style.visibility="hidden";
+
+						document.getElementById("weight").setAttribute('type','hidden');
+						document.getElementById("weight_label").style.visibility="hidden";
+
+						document.getElementById("date_of_birth").setAttribute('type','hidden');
+						document.getElementById("date_of_birth_label").style.visibility="hidden";
+
+						document.getElementById("birthplace").setAttribute('type','hidden');
+						document.getElementById("birthplace_label").style.visibility="hidden";
+
+						document.getElementById("position").style.visibility="hidden";
+						document.getElementById("position_label").style.visibility="hidden";
+
+						document.getElementById("preferred_hand").style.visibility="hidden";
+						document.getElementById("preferred_hand_label").style.visibility="hidden";
+				}
+						
+				
+				function MostrarCampos(){
+
+					if(document.getElementById("role").value == "0"){
+						document.getElementById("directed_team").setAttribute('type','hidden');
+						document.getElementById("directed_team_label").style.visibility="hidden";
+
+
+						document.getElementById("height").setAttribute('type','hidden');
+						document.getElementById("height_label").style.visibility="hidden";
+
+						document.getElementById("weight").setAttribute('type','hidden');
+						document.getElementById("weight_label").style.visibility="hidden";
+
+						document.getElementById("date_of_birth").setAttribute('type','hidden');
+						document.getElementById("date_of_birth_label").style.visibility="hidden";
+
+						document.getElementById("birthplace").setAttribute('type','hidden');
+						document.getElementById("birthplace_label").style.visibility="hidden";
+
+						document.getElementById("position").style.visibility="hidden";
+						document.getElementById("position_label").style.visibility="hidden";
+
+						document.getElementById("preferred_hand").style.visibility="hidden";
+						document.getElementById("preferred_hand_label").style.visibility="hidden";
+					}
+					if(document.getElementById("role").value == "1"){
+
+						document.getElementById("directed_team").setAttribute('type','text');
+						document.getElementById("directed_team_label").style.visibility="visible";
+
+
+						document.getElementById("height").setAttribute('type','hidden');
+						document.getElementById("height_label").style.visibility="hidden";
+
+						document.getElementById("weight").setAttribute('type','hidden');
+						document.getElementById("weight_label").style.visibility="hidden";
+
+						document.getElementById("date_of_birth").setAttribute('type','hidden');
+						document.getElementById("date_of_birth_label").style.visibility="hidden";
+
+						document.getElementById("birthplace").setAttribute('type','hidden');
+						document.getElementById("birthplace_label").style.visibility="hidden";
+
+						document.getElementById("position").style.visibility="hidden";
+						document.getElementById("position_label").style.visibility="hidden";
+
+						document.getElementById("preferred_hand").style.visibility="hidden";
+						document.getElementById("preferred_hand_label").style.visibility="hidden";
+					}
+					if(document.getElementById("role").value == "2"){
+						
+						document.getElementById("directed_team").setAttribute('type','hidden');
+						document.getElementById("directed_team_label").style.visibility="hidden";
+
+
+						document.getElementById("height").setAttribute('type','text');
+						document.getElementById("height_label").style.visibility="visible";
+
+						document.getElementById("weight").setAttribute('type','text');
+						document.getElementById("weight_label").style.visibility="visible";
+
+						document.getElementById("date_of_birth").setAttribute('type','text');
+						document.getElementById("date_of_birth_label").style.visibility="visible";
+
+						document.getElementById("birthplace").setAttribute('type','text');
+						document.getElementById("birthplace_label").style.visibility="visible";
+
+						document.getElementById("position").style.visibility="visible";
+						document.getElementById("position_label").style.visibility="visible";
+
+						document.getElementById("preferred_hand").style.visibility="visible";
+						document.getElementById("preferred_hand_label").style.visibility="visible";
+					}
+					if(document.getElementById("role").value == "3"){
+						document.getElementById("directed_team").setAttribute('type','hidden');
+						document.getElementById("directed_team_label").style.visibility="hidden";
+
+
+						document.getElementById("height").setAttribute('type','hidden');
+						document.getElementById("height_label").style.visibility="hidden";
+
+						document.getElementById("weight").setAttribute('type','hidden');
+						document.getElementById("weight_label").style.visibility="hidden";
+
+						document.getElementById("date_of_birth").setAttribute('type','hidden');
+						document.getElementById("date_of_birth_label").style.visibility="hidden";
+
+						document.getElementById("birthplace").setAttribute('type','hidden');
+						document.getElementById("birthplace_label").style.visibility="hidden";
+
+						document.getElementById("position").style.visibility="hidden";
+						document.getElementById("position_label").style.visibility="hidden";
+
+						document.getElementById("preferred_hand").style.visibility="hidden";
+						document.getElementById("preferred_hand_label").style.visibility="hidden";
+					}
+
+				}
+
+
+
+			</script>
+
+			<label class="form-label" id="directed_team_label">Directed Team</label>
+        	<input type="text" name="" class="form-control mb-2" placeholder="Insert Directed Team here" id="directed_team">
+
+        	<br><label class="form-label" id="height_label">Height</label>
+        	<input type="number" name="" class="form-control mb-2" placeholder="Insert Height here" id="height">
+
+        	<label class="form-label" id="weight_label">Weight</label>
+        	<input type="number" name="" class="form-control mb-2" placeholder="Insert Weight here" id="weight">
+
+        	<label class="form-label" id="date_of_birth_label">Date of birth</label>
+        	<input type="text" name="" class="form-control mb-2" placeholder="Insert Date of birth here" id="date_of_birth">
+
+        	<label class="form-label" id="birthplace_label">Birthplace</label>
+        	<input type="text" name="" class="form-control mb-2" placeholder="Insert Birthplace here" id="birthplace">
+
+        	<label class="form-label" id="position_label">Position</label>
+        	<select class="form-control" aria-label="Default select example" id="position">
+  				<option value="goalie" selected>Goalie</option>
+  				<option value="defense">Defense</option>
+  				<option value="forward">Forward</option>
+			</select>
+
+        	<label class="form-label" id="preferred_hand_label">Preferrend hand</label>
+        	<select class="form-control" aria-label="Default select example" id="preferred_hand">
+  				<option value="left" selected>Left</option>
+  				<option value="right">Right</option>
+			</select>
+
+
+
+			<button type="button" class="btn btn-primary form-control mt-2" onclick="CreateUser()">Create User</button>
+
+			<script type="text/javascript">
+				function CreateUser(){
+
+					if(document.getElementById("role").value == "0"){
+					alert("Please select a role");
+					}else{
+					if(document.getElementById("role").value == "1"){
+					var user = {
+						id: parseInt(localStorage.getItem("last_user_id")) + 1,
+						role: "president",
+						name: document.getElementById("name").value,
+						email: document.getElementById("email").value,
+						password: document.getElementById("password").value,
+						directed_team: document.getElementById("directed_team").value
+					}
+					}
+					if(document.getElementById("role").value == "2"){
+					var user = {
+						id: parseInt(localStorage.getItem("last_user_id")) + 1,
+						role: "player",
+						name: document.getElementById("name").value,
+						email: document.getElementById("email").value,
+						password: document.getElementById("password").value,
+						height: document.getElementById("height").value,
+						weight: document.getElementById("weight").value,
+						date_of_birth: document.getElementById("date_of_birth").value,
+						birthplace: document.getElementById("birthplace").value,
+						position: document.getElementById("position").value,
+						preferred_hand: document.getElementById("preferred_hand").value
+					}
+					}
+					if(document.getElementById("role").value == "3"){
+					var user = {
+						id: parseInt(localStorage.getItem("last_user_id")) + 1,
+						role: "database administrator",
+						name: document.getElementById("name").value,
+						email: document.getElementById("email").value,
+						password: document.getElementById("password").value
+					}
+					}
+					localStorage.setItem("user_"+user.id.toString(), JSON.stringify(user));
+					localStorage.setItem("last_user_id", user.id.toString());
+					alert("User created successfully");
+				}
+
+
+				}
+				
+			</script>
+
+
+
+       		</div>
+
+        	<div class="col-7 ml-3 p-3" style="background-color: #fff; border: solid #e3e4e5 1px; border-radius: 8px;"> 
+        	
+        	<h3>Users List</h3>
+
+        	<table class="table">
+  				<thead>
+    				<tr>
+      					<th scope="col">Email</th>
+      					<th scope="col">Role</th>
+      					<th scope="col">Actions</th>
+    				</tr>
+  				</thead>
+  				<tbody id="table_body">
+  					
+  				</tbody>
+			</table>
+
+        	</div>
+
+        </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
