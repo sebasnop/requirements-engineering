@@ -100,9 +100,11 @@
         			<script type="text/javascript">
         				
         				function CreateLSA(){
-
+        					if(localStorage.getItem("last_LSA_id") == null){
+						localStorage.setItem("last_LSA_id", 0) ;
+					}
         					var last_season_result = {
-								identification: parseInt(localStorage.getItem("LSA_id")) + 1,
+								identification: parseInt(localStorage.getItem("last_LSA_id")) + 1,
 								shootout_wins_count: document.getElementById("shootout_wins_count").value,
 								shootout_losses_count: document.getElementById("shootout_losses_count").value,
 								penalty_time: document.getElementById("penalty_time").value,

@@ -47,6 +47,10 @@
 
 				function CreateOffer(){
 
+					if(localStorage.getItem("last_offer_id") == null){
+						localStorage.setItem("last_offer_id", 0) ;
+					}
+
 					var offer = {
 					id: parseInt(localStorage.getItem("last_offer_id")) + 1,
 					salary: document.getElementById("proposed_salary").value,

@@ -250,6 +250,10 @@
 			<script type="text/javascript">
 				function CreateUser(){
 
+					if(localStorage.getItem("last_user_id") == null){
+						localStorage.setItem("last_user_id", 0) ;
+					}
+
 					if(document.getElementById("role").value == "0"){
 					alert("Please select a role");
 					}else{

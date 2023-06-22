@@ -90,8 +90,12 @@
         				
         				function CreateSPM(){
 
+        					if(localStorage.getItem("last_SPM_id") == null){
+						localStorage.setItem("last_SPM_id", 0) ;
+					}
+
         					var season_performance_measure = {
-								identification: 0 + 1,
+								identification: parseInt(localStorage.getItem("last_SPM_id")) + 1,
 								minutes_played: document.getElementById("minutes_played").value,
 								shutouts_count: document.getElementById("shutouts_count").value,
 								goals_against_count: document.getElementById("goals_against_count").value,
